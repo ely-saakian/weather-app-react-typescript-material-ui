@@ -1,26 +1,35 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Container, Grid } from "@material-ui/core";
+import { makeStyles } from "@material-ui/core/styles";
+import SearchInput from "./components/SearchInput";
+import TheHeader from "./components/TheHeader";
 
-function App() {
+const useStyles = makeStyles({
+  container: {
+    height: "100vh",
+  },
+  grid: {
+    height: "100%",
+  },
+});
+
+export default function App() {
+  const classes = useStyles();
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Container className={classes.container}>
+      <Grid
+        spacing={5}
+        className={classes.grid}
+        container
+        justifyContent="center"
+        alignContent="center"
+      >
+        <Grid item>
+          <TheHeader />
+        </Grid>
+        <Grid item>
+          <SearchInput />
+        </Grid>
+      </Grid>
+    </Container>
   );
 }
-
-export default App;
