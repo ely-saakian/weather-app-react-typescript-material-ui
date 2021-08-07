@@ -35,14 +35,18 @@ export default function Daily({
         <Grid container direction="column">
           <Grid item>
             <Typography>
-              <Box className={classes.allCaps} fontWeight="400">
+              <Box
+                component="span"
+                className={classes.allCaps}
+                fontWeight="400"
+              >
                 {moment(timestamp).calendar().split(" ")[0]}
               </Box>
             </Typography>
           </Grid>
           <Grid item>
             <Typography variant="caption">
-              <Box className={classes.allCaps}>
+              <Box component="span" className={classes.allCaps}>
                 {moment(timestamp).format("D MMM")}
               </Box>
             </Typography>

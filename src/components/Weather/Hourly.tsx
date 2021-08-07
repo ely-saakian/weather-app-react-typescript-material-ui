@@ -14,7 +14,7 @@ export default function Hourly({ time, temp, condition }: HourlyProps) {
       </Grid>
       <Grid item>
         <Typography>
-          <Box fontWeight="bold">
+          <Box component="span" fontWeight="bold">
             {temp}
             <span>&#176;</span>F
           </Box>
@@ -22,7 +22,9 @@ export default function Hourly({ time, temp, condition }: HourlyProps) {
       </Grid>
       <Grid item>
         <Typography>
-          <Box fontWeight="300">{condition}</Box>
+          <Box component="span" fontWeight="300">
+            {condition}
+          </Box>
         </Typography>
       </Grid>
     </Grid>

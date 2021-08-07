@@ -23,59 +23,86 @@ export default function DailyDetails() {
     >
       <Grid item>
         <Typography variant="h6">
-          <Box className={classes.allCaps} pt={0.5} fontWeight="400">
+          <Box
+            component="span"
+            className={classes.allCaps}
+            pt={0.5}
+            fontWeight="400"
+          >
             Cloudy
           </Box>
         </Typography>
       </Grid>
       <Grid item>
         <Typography>
-          <Box fontWeight="300">Feels like</Box>
+          <Box component="span" fontWeight="300">
+            Feels like
+          </Box>
         </Typography>
         <Typography>
-          <Box fontWeight="bold">
+          <Box component="span" fontWeight="bold">
             50<span>&#176;</span>F
           </Box>
         </Typography>
       </Grid>
       <Grid item>
         <Typography>
-          <Box fontWeight="300">Sunrise</Box>
+          <Box component="span" fontWeight="300">
+            Sunrise
+          </Box>
         </Typography>
         <Typography>
-          <Box fontWeight="bold">5:32 AM</Box>
-        </Typography>
-      </Grid>
-      <Grid item>
-        <Typography>
-          <Box fontWeight="300">Sunset</Box>
-        </Typography>
-        <Typography>
-          <Box fontWeight="bold">9:32 AM</Box>
+          <Box component="span" fontWeight="bold">
+            5:32 AM
+          </Box>
         </Typography>
       </Grid>
       <Grid item>
         <Typography>
-          <Box fontWeight="300">Humidity</Box>
+          <Box component="span" fontWeight="300">
+            Sunset
+          </Box>
         </Typography>
         <Typography>
-          <Box fontWeight="bold">30%</Box>
-        </Typography>
-      </Grid>
-      <Grid item>
-        <Typography>
-          <Box fontWeight="300">Wind speed</Box>
-        </Typography>
-        <Typography>
-          <Box fontWeight="bold">2.6 mph</Box>
+          <Box component="span" fontWeight="bold">
+            9:32 AM
+          </Box>
         </Typography>
       </Grid>
       <Grid item>
         <Typography>
-          <Box fontWeight="300">UVI</Box>
+          <Box component="span" fontWeight="300">
+            Humidity
+          </Box>
         </Typography>
         <Typography>
-          <Box fontWeight="bold">6.14</Box>
+          <Box component="span" fontWeight="bold">
+            30%
+          </Box>
+        </Typography>
+      </Grid>
+      <Grid item>
+        <Typography>
+          <Box component="span" fontWeight="300">
+            Wind speed
+          </Box>
+        </Typography>
+        <Typography>
+          <Box component="span" fontWeight="bold">
+            2.6 mph
+          </Box>
+        </Typography>
+      </Grid>
+      <Grid item>
+        <Typography>
+          <Box component="span" fontWeight="300">
+            UVI
+          </Box>
+        </Typography>
+        <Typography>
+          <Box component="span" fontWeight="bold">
+            6.14
+          </Box>
         </Typography>
       </Grid>
     </Grid>
