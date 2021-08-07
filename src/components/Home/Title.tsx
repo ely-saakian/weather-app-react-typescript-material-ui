@@ -1,6 +1,6 @@
 import { Box, Typography, Grid } from "@material-ui/core";
 
-export default function TheHeader() {
+export default function Title() {
   return (
     <Grid container justifyContent="center">
       <Grid item>

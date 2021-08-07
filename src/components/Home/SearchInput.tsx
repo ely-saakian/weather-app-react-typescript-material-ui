@@ -28,6 +28,7 @@ export default function SearchInput() {
           variant="contained"
           color="primary"
           disableElevation
+          onClick={(e) => e.preventDefault()}
         >
           Search
         </Button>
