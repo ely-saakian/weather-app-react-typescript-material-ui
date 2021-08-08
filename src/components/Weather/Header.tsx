@@ -1,6 +1,7 @@
 import { Grid, IconButton, Typography } from "@material-ui/core";
 import { Search } from "@material-ui/icons";
 import { makeStyles } from "@material-ui/core/styles";
+import { useHistory } from "react-router-dom";
 
 const useStyles = makeStyles({
   container: {
@@ -14,6 +15,7 @@ const useStyles = makeStyles({
 
 export default function Header() {
   const classes = useStyles();
+  const history = useHistory();
 
   return (
     <Grid
@@ -27,6 +29,7 @@ export default function Header() {
           aria-label="search"
           color="primary"
           className={classes.icon}
+          onClick={() => history.push("/")}
         >
           <Search fontSize="large" />
         </IconButton>
