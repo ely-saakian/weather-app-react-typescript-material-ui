@@ -1,7 +1,7 @@
 import { Grid } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
-import SearchInput from "../components/Home/SearchInput";
 import Title from "../components/Home/Title";
+import Search from "../components/Home/Search";
 
 const useStyles = makeStyles({
   grid: {
@@ -24,7 +24,7 @@ export default function HomePage() {
       </Grid>
       <Grid container justifyContent="center">
         <Grid item>
-          <SearchInput />
+          <Search />
         </Grid>
       </Grid>
     </Grid>

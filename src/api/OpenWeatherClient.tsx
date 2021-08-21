@@ -7,8 +7,8 @@ export default class OpenWeatherClient {
     this.key = key;
   }
 
-  async getWeatherForCity(city: string): Promise<Weather> {
-    const { lon, lat } = await this.getCoordsForCity(city);
+  async getWeatherForCityById(cityId: string): Promise<Weather> {
+    const { lon, lat } = await this.getCoordsForCityById(cityId);
     const api = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=minutely&&appid=${this.key}&units=imperial`;
     try {
       const response = await fetch(api);
@@ -35,12 +35,8 @@ export default class OpenWeatherClient {
     }
   }
 
-  private async getCoordsForCity(
-    city: string,
-    country?: string
-  ): Promise<Coords> {
-    if (!country) country = this.getCountryFromLocale();
-    const api = `https://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${this.key}`;
+  private async getCoordsForCityById(cityId: string): Promise<Coords> {
+    const api = `https://api.openweathermap.org/data/2.5/weather?id=${cityId}&appid=${this.key}`;
 
     try {
       const response = await fetch(api);
@@ -53,11 +49,6 @@ export default class OpenWeatherClient {
     } catch (error) {
       throw error;
     }
-  }
-
-  private getCountryFromLocale(): string {
-    const userLocale = navigator.language;
-    return userLocale.slice(-2);
   }
 }
 
