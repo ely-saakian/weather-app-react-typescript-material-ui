@@ -13,7 +13,7 @@ const useStyles = makeStyles({
   },
 });
 
-export default function Header() {
+export default function Header({ city }: any) {
   const classes = useStyles();
   const history = useHistory();
 
@@ -35,7 +35,7 @@ export default function Header() {
         </IconButton>
       </Grid>
       <Grid item>
-        <Typography variant="button">Vancouver, WA</Typography>
+        <Typography variant="button">{city}</Typography>
       </Grid>
     </Grid>
   );

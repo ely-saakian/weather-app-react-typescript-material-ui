@@ -1,14 +1,19 @@
 import { Grid } from "@material-ui/core";
 import Hourly from "./Hourly";
 import { makeStyles } from "@material-ui/core/styles";
+import { HourlyWeather } from "../../api/OpenWeatherClient";
 
 const useStyles = makeStyles({
   container: {
-    padding: "0 2rem",
+    padding: "1rem 2rem",
   },
 });
 
-export default function HourlyContainer() {
+export default function HourlyContainer({
+  hourly,
+}: {
+  hourly: HourlyWeather[];
+}) {
   const classes = useStyles();
   return (
     <Grid
@@ -16,24 +21,16 @@ export default function HourlyContainer() {
       justifyContent="space-between"
       className={classes.container}
     >
-      <Grid item>
-        <Hourly time="NOW" temp="60" condition="Rain" />
-      </Grid>
-      <Grid item>
-        <Hourly time="11 AM" temp="70" condition="Rain" />
-      </Grid>
-      <Grid item>
-        <Hourly time="1 PM" temp="80" condition="Cloudy" />
-      </Grid>
-      <Grid item>
-        <Hourly time="3 PM" temp="90" condition="Clear" />
-      </Grid>
-      <Grid item>
-        <Hourly time="5 PM" temp="80" condition="Clear" />
-      </Grid>
-      <Grid item>
-        <Hourly time="7 PM" temp="80" condition="Rain" />
-      </Grid>
+      {hourly.map((hour) => (
+        <Grid item key={hour.dt}>
+          <Hourly
+            time={hour.dt}
+            temp={hour.temp}
+            condition={hour.weather[0].main}
+            icon={`assets/${hour.weather[0].icon}@4x.png`}
+          />
+        </Grid>
+      ))}
     </Grid>
   );
 }
