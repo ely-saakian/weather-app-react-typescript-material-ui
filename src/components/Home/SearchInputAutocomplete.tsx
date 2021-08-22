@@ -91,7 +91,7 @@ export default function SearchInputAutocomplete() {
 			renderInput={(params) => (
 				<TextField
 					{...params}
-					label="Search for a city"
+					label="Start typing city name"
 					fullWidth
 					InputProps={{
 						...params.InputProps,
