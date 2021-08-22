@@ -10,9 +10,7 @@ export default class OpenWeatherClient {
 	async getWeatherForCityByCoords(lon: number, lat: number): Promise<IWeather> {
 		const api = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=minutely&&appid=${this.key}&units=imperial`;
 
-		if (this.city === "" || this.country === "") {
-			this.getCityAndCountryByCoords(lon, lat);
-		}
+		this.getCityAndCountryByCoords(lon, lat);
 
 		try {
 			const response = await fetch(api);
