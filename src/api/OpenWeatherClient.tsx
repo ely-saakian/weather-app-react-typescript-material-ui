@@ -7,9 +7,13 @@ export default class OpenWeatherClient {
 		this.key = key;
 	}
 
-	async getWeatherForCityById(cityId: string): Promise<IWeather> {
-		const { lon, lat } = await this.getCoordsForCityById(cityId);
+	async getWeatherForCityByCoords(lon: number, lat: number): Promise<IWeather> {
 		const api = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=minutely&&appid=${this.key}&units=imperial`;
+
+		if (this.city === "" || this.country === "") {
+			this.getCityAndCountryByCoords(lon, lat);
+		}
+
 		try {
 			const response = await fetch(api);
 			const data = await response.json();
@@ -33,6 +37,23 @@ export default class OpenWeatherClient {
 				hourly: this.hourlyEveryOtherHourLimitTo(data.hourly, 5),
 				daily: data.daily,
 			};
+		} catch (error) {
+			throw error;
+		}
+	}
+
+	async getWeatherForCityById(cityId: string): Promise<IWeather> {
+		const { lon, lat } = await this.getCoordsForCityById(cityId);
+		return this.getWeatherForCityByCoords(lon, lat);
+	}
+
+	private async getCityAndCountryByCoords(lon: number, lat: number) {
+		const api = `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${lat}&longitude=${lon}&localityLanguage=en`;
+		try {
+			const response = await fetch(api);
+			const { city, countryCode } = await response.json();
+			this.city = city;
+			this.country = countryCode;
 		} catch (error) {
 			throw error;
 		}
