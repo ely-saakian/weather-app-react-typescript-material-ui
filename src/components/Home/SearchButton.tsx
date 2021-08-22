@@ -26,6 +26,7 @@ export default function SearchButton() {
 			variant="contained"
 			color="primary"
 			disableElevation
+			disabled={weatherCtx.selectedCityId === undefined}
 			onClick={clickHandler}
 			endIcon={<Search />}
 		>

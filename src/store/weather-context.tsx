@@ -10,7 +10,7 @@ const WeatherContext: Context<{
 	weatherData?: IWeather;
 	selectedCityId?: string;
 	setLoadingData: (status: boolean) => void;
-	setSelectedCityId: (cityId: string) => void;
+	setSelectedCityId: (cityId?: string) => void;
 	setWeatherData: (weatherData: IWeather) => void;
 	clearState: () => void;
 }> = createContext({
@@ -28,7 +28,7 @@ export function WeatherContextProvider(props: { children: ReactNode }) {
 
 	const setLoadingDataHandler = (status: boolean) => setLoadingData(status);
 
-	const setSelectedCityIdHandler = (cityId: string) => setSelectedCityId(cityId);
+	const setSelectedCityIdHandler = (cityId?: string) => setSelectedCityId(cityId);
 
 	const setWeatherDataHandler = (weatherData: IWeather) => {
 		setWeatherData(weatherData);
