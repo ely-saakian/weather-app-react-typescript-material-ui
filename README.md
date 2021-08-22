@@ -4,7 +4,7 @@ Powered by OpenWeather api
 
 ## Demo
 
-[Hosted on Github Pages]()
+[Hosted on Github Pages](https://ely-saakian.github.io/weather-app-react-typescript-material-ui/)
 
 ## Technology
 
@@ -32,3 +32,8 @@ A little project I did to quickly get familiar with React and Typescript. It is 
 2. Then city id is extracted from the selected option and `OpenWeather: One Call` api is called with that id.
 
 3. (Optional) If user allows sharing geolocation `OpenWeather: One Call` api is called with user's longitude and latitude coordinates.
+
+## Resources
+
+- Deployed to GH Pages using this guide:
+  - https://www.pluralsight.com/guides/how-to-host-your-static-webpages-on-github-pages
