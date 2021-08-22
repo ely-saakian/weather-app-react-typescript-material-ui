@@ -22,7 +22,7 @@ export default function App() {
 	return (
 		<Container disableGutters className={classes.container}>
 			<WeatherContextProvider>
-				<Router>
+				<Router basename={process.env.PUBLIC_URL}>
 					{routes.map(({ path, Component }) => (
 						<Route key={path} exact path={path}>
 							{({ match }) => (
