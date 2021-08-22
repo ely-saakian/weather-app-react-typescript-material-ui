@@ -14,6 +14,9 @@ const useStyles = makeStyles((theme: Theme) =>
 			zIndex: theme.zIndex.drawer + 1,
 			color: "#fff",
 		},
+		backdropGridItem: {
+			padding: "0px !important",
+		},
 	})
 );
 
@@ -22,8 +25,8 @@ export default function HomePage() {
 
 	const classes = useStyles();
 	return (
-		<Grid spacing={5} className={classes.grid} container justifyContent="center" alignContent="center">
-			<Grid item>
+		<Grid spacing={10} className={classes.grid} container justifyContent="center" alignContent="center">
+			<Grid item className={classes.backdropGridItem}>
 				<Backdrop className={classes.backdrop} open={weatherCtx.loadingData || false}>
 					<CircularProgress color="inherit" />
 				</Backdrop>
