@@ -9,11 +9,15 @@ export default function SearchButton() {
 	const history = useHistory();
 
 	const clickHandler = () => {
-		if (weatherCtx.selectedCityId !== undefined)
+		if (weatherCtx.selectedCityId !== undefined) {
+			weatherCtx.setLoadingData(true);
+
 			weatherCtx.weatherClient
 				.getWeatherForCityById(weatherCtx.selectedCityId)
 				.then((data) => weatherCtx.setWeatherData(data))
+				.then(() => weatherCtx.setLoadingData(false))
 				.then(() => history.push("/weather"));
+		}
 	};
 
 	return (

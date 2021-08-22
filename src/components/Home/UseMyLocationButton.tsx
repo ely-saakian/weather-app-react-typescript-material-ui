@@ -9,10 +9,13 @@ export default function UseMyLocationButton() {
 	const history = useHistory();
 
 	const useMyLocationHandler = () => {
+		weatherCtx.setLoadingData(true);
+
 		navigator.geolocation.getCurrentPosition(({ coords }) => {
 			weatherCtx.weatherClient
 				.getWeatherForCityByCoords(coords.longitude, coords.latitude)
 				.then((data) => weatherCtx.setWeatherData(data))
+				.then(() => weatherCtx.setLoadingData(false))
 				.then(() => history.push("/weather"));
 		});
 	};
