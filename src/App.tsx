@@ -1,4 +1,4 @@
-import { Container } from "@material-ui/core";
+import { Container, Grid } from "@material-ui/core";
 import WeatherPage from "./pages/WeatherPage";
 import { makeStyles } from "@material-ui/core/styles";
 import HomePage from "./pages/HomePage";
@@ -28,7 +28,11 @@ export default function App() {
 							{({ match }) => (
 								<CSSTransition in={match != null} timeout={300} classNames="page" unmountOnExit>
 									<div className="page">
-										<Component />
+										<Grid container justifyContent="center">
+											<Grid item xs={12} md={8} lg={6}>
+												<Component />
+											</Grid>
+										</Grid>
 									</div>
 								</CSSTransition>
 							)}

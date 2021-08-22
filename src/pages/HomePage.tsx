@@ -8,7 +8,7 @@ import WeatherContext from "../store/weather-context";
 const useStyles = makeStyles((theme: Theme) =>
 	createStyles({
 		grid: {
-			height: "100%",
+			height: "100vh",
 		},
 		backdrop: {
 			zIndex: theme.zIndex.drawer + 1,
