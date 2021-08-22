@@ -17,7 +17,7 @@ const useStyles = makeStyles({
 export default function WeatherPage() {
 	const weatherCtx = useContext(WeatherContext);
 	const classes = useStyles();
-	return weatherCtx.weatherData.name ? (
+	return weatherCtx.weatherData ? (
 		<Grid container direction="column" wrap="nowrap" justifyContent="space-between" className={classes.container}>
 			<Grid item>
 				<Header city={weatherCtx.weatherData.name}></Header>
