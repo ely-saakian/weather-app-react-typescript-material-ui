@@ -9,10 +9,11 @@ export default function SearchButton() {
 	const history = useHistory();
 
 	const clickHandler = () => {
-		weatherCtx.weatherClient
-			.getWeatherForCityById(weatherCtx.selectedCityId || "")
-			.then((data) => weatherCtx.setWeatherData(data))
-			.then(() => history.push("/weather"));
+		if (weatherCtx.selectedCityId !== undefined)
+			weatherCtx.weatherClient
+				.getWeatherForCityById(weatherCtx.selectedCityId)
+				.then((data) => weatherCtx.setWeatherData(data))
+				.then(() => history.push("/weather"));
 	};
 
 	return (
