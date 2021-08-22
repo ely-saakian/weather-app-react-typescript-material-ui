@@ -1,4 +1,4 @@
-import { Container, Grid } from "@material-ui/core";
+import { Box, Container, Grid } from "@material-ui/core";
 import WeatherPage from "./pages/WeatherPage";
 import { makeStyles } from "@material-ui/core/styles";
 import HomePage from "./pages/HomePage";
@@ -9,7 +9,7 @@ import { WeatherContextProvider } from "./store/weather-context";
 
 const useStyles = makeStyles({
 	container: {
-		height: "100vh",
+		height: "100%",
 	},
 });
 
@@ -28,9 +28,11 @@ export default function App() {
 							{({ match }) => (
 								<CSSTransition in={match != null} timeout={300} classNames="page" unmountOnExit>
 									<div className="page">
-										<Grid container justifyContent="center">
+										<Grid container justifyContent="center" className={classes.container}>
 											<Grid item xs={12} md={8} lg={6}>
-												<Component />
+												<Box boxShadow={24} height="100%">
+													<Component />
+												</Box>
 											</Grid>
 										</Grid>
 									</div>

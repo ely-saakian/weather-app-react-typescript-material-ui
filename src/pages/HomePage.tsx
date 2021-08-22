@@ -1,4 +1,4 @@
-import { Backdrop, CircularProgress, Grid } from "@material-ui/core";
+import { Backdrop, Box, CircularProgress, Grid } from "@material-ui/core";
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 import Title from "../components/Home/Title";
 import Search from "../components/Home/Search";
@@ -8,7 +8,7 @@ import WeatherContext from "../store/weather-context";
 const useStyles = makeStyles((theme: Theme) =>
 	createStyles({
 		grid: {
-			height: "100vh",
+			height: "100%",
 		},
 		backdrop: {
 			zIndex: theme.zIndex.drawer + 1,
@@ -25,7 +25,7 @@ export default function HomePage() {
 
 	const classes = useStyles();
 	return (
-		<Grid spacing={10} className={classes.grid} container justifyContent="center" alignContent="center">
+		<Grid container className={classes.grid} justifyContent="center" alignContent="center">
 			<Grid item className={classes.backdropGridItem}>
 				<Backdrop className={classes.backdrop} open={weatherCtx.loadingData || false}>
 					<CircularProgress color="inherit" />
@@ -36,7 +36,9 @@ export default function HomePage() {
 			</Grid>
 			<Grid container justifyContent="center">
 				<Grid item>
-					<Search />
+					<Box mt={10}>
+						<Search />
+					</Box>
 				</Grid>
 			</Grid>
 		</Grid>
