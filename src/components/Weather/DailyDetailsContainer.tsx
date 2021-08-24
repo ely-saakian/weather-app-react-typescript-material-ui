@@ -2,9 +2,11 @@ import { Grid } from "@material-ui/core";
 import DailyDetails from "./DailyDetails";
 import DailyContainer from "./DailyContainer";
 import { DailyWeather } from "../../api/OpenWeatherClient";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import WeatherContext from "../../store/weather-context";
 
 export default function DailyDetailsContainer({ daily }: { daily: DailyWeather[] }) {
+	const weatherCtx = useContext(WeatherContext);
 	const [activeDay, setActiveDay] = useState(daily[0]);
 	const [activeDayIndex, setActiveDayIndex] = useState(0);
 	const selectDayHandler = (event: any, index: number) => {
@@ -19,6 +21,7 @@ export default function DailyDetailsContainer({ daily }: { daily: DailyWeather[]
 			</Grid>
 			<Grid item xs={6}>
 				<DailyDetails
+					timezoneOffset={weatherCtx.weatherData?.timezoneOffset || 0}
 					sunrise={activeDay?.sunrise}
 					sunset={activeDay?.sunset}
 					description={activeDay?.weather[0].main}

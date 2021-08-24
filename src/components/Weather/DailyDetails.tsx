@@ -14,7 +14,16 @@ const useStyles = makeStyles({
 		paddingTop: "1.45rem",
 	},
 });
-export default function DailyDetails({ description, feelsLike, windSpeed, humidity, uvi, sunrise, sunset }: any) {
+export default function DailyDetails({
+	timezoneOffset,
+	description,
+	feelsLike,
+	windSpeed,
+	humidity,
+	uvi,
+	sunrise,
+	sunset,
+}: any) {
 	const classes = useStyles();
 	return (
 		<Grid container direction="column" justifyContent="space-between" className={classes.container}>
@@ -46,7 +55,10 @@ export default function DailyDetails({ description, feelsLike, windSpeed, humidi
 				</Typography>
 				<Typography>
 					<Box component="span" fontWeight="bold">
-						{moment.unix(sunrise).format("hh:mm a")}
+						{moment
+							.unix(sunrise + timezoneOffset)
+							.utc()
+							.format("hh:mm a")}
 					</Box>
 				</Typography>
 			</Grid>
@@ -58,7 +70,10 @@ export default function DailyDetails({ description, feelsLike, windSpeed, humidi
 				</Typography>
 				<Typography>
 					<Box component="span" fontWeight="bold">
-						{moment.unix(sunset).format("hh:mm a")}
+						{moment
+							.unix(sunset + timezoneOffset)
+							.utc()
+							.format("hh:mm a")}
 					</Box>
 				</Typography>
 			</Grid>

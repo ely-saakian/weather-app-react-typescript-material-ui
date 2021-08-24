@@ -27,14 +27,14 @@ export default function Daily({ active = false, timestamp = Date.now(), temp }: 
 					<Grid item>
 						<Typography>
 							<Box component="span" className={classes.allCaps} fontWeight="400">
-								{moment.unix(timestamp).format("ddd")}
+								{moment.unix(timestamp).utc().format("ddd")}
 							</Box>
 						</Typography>
 					</Grid>
 					<Grid item>
 						<Typography variant="caption">
 							<Box component="span" className={classes.allCaps}>
-								{moment.unix(timestamp).format("D MMM")}
+								{moment.unix(timestamp).utc().format("D MMM")}
 							</Box>
 						</Typography>
 					</Grid>

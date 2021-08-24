@@ -17,6 +17,7 @@ export default class OpenWeatherClient {
 			const data = await response.json();
 			return {
 				name: `${this.city}, ${this.country}`,
+				timezoneOffset: data.timezone_offset,
 				coord: {
 					lat: data.lat,
 					lon: data.lon,
@@ -32,7 +33,7 @@ export default class OpenWeatherClient {
 						main: data.current.weather[0].main,
 					},
 				},
-				hourly: this.hourlyEveryOtherHourLimitTo(data.hourly, 5),
+				hourly: this.hourlyEveryOtherHourLimitTo(data.hourly, 4),
 				daily: data.daily,
 			};
 		} catch (error) {
@@ -88,6 +89,7 @@ export default class OpenWeatherClient {
 export interface IWeather {
 	name?: string;
 	coord?: Coords;
+	timezoneOffset?: number;
 	current?: {
 		max: number;
 		min: number;
